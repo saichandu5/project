@@ -16,11 +16,5 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'mvn test'
-      
-            }
-        }
-        stage('Building Docker image') {
-            steps {
-                 sh 'docker build -t saichandu5/sp.app:latest .'
             }
         }
