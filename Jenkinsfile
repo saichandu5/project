@@ -28,5 +28,6 @@ pipeline {
                 sh 'docker build -t saichandu5/my-project .'
             }   
         }
-    }
-}
+  
+     }
+ }
