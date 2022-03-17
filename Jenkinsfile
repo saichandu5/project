@@ -21,7 +21,7 @@ pipeline {
         stage('Docker Build and Tag') {
             steps {
                 sh 'docker build -t sample-app:latest .'
-                sh 'docker tag sample-app saichandu5/sample-app:latest
+                sh 'docker tag sample-app saichandu5/sample-app:latest'
                 //sh 'docker tag sample-app saichandu5/sample-app:$1.0'
             }
         }   
