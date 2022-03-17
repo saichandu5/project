@@ -23,6 +23,10 @@ pipeline {
                 sh 'mvn clean'
             }
         }
-
+        stage('Dockerfile is true')
+            steps {
+                sh 'docker build -t saichandu5/my-project .'
+            }   
+        }
     }
 }
