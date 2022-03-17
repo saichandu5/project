@@ -1,5 +1,5 @@
-FROM maven AS build
-WORKDIR /app
-COPY . /app
-RUN mvn package
-COPY --from=build /app/target/*.war /user/local/tomcat/Webapps
+FROM tomcat:latest
+LABEL maintainer="saichandu5"
+ADD ./target/*.war /usr/local/tomcat/webapps/
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
