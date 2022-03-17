@@ -18,11 +18,13 @@ pipeline {
                 sh 'mvn test'
             }
         }
-        stage('Dockerfile true') {
+        stage('Docker Build and Tag') {
             steps {
-                sh 'docker build -t saichandu5/my-app'
+                sh 'docker build -t sample-app:latest .'
+                sh 'docker tag sample-app saichandu5/sample-app:latest
+                //sh 'docker tag sample-app saichandu5/sample-app:$1.0'
             }
-        }
-
+        }   
+        
     }
-}
+}   
