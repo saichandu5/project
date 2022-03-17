@@ -18,16 +18,11 @@ pipeline {
                 sh 'mvn test'
             }
         }
-        stage('Deploy') {
+        stage('Dockerfile true') {
             steps {
-                sh 'mvn clean'
+                sh 'docker build -t saichandu5/my-app'
             }
         }
-        stage('Dockerfile')
-            steps {
-                sh 'docker build -t saichandu5/my-project .'
-            }
-        }
-    
+
     }
 }
