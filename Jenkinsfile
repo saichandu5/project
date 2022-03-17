@@ -25,6 +25,11 @@ pipeline {
                 //sh 'docker tag sample-app saichandu5/sample-app:$1.0'
             }
         }   
-        
+        stage('Run Docker container on Jenkins agent') {
+            steps {
+                sh 'docker run -d -p 8003:8080 saichandu5/sample-app'
+            }          
+        }
+               
     }
 }   
