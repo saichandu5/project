@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    cleanWs()
+    
     stages {
         
         stage('Validate') {
@@ -31,5 +31,10 @@ pipeline {
             }          
         }
                
+    }
+    post { 
+        always { 
+            cleanWs()
+        }
     }
 }   
