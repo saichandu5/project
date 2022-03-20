@@ -8,14 +8,14 @@ pipeline {
                 sh 'mvn validate'
             }
         }
-        stage('Build') {
-            steps {
-                sh 'mvn package'
-            }
-        }
         stage('Test') {
             steps {
                 sh 'mvn test'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'mvn package'
             }
         }
         stage('Docker Build and Tag') {
@@ -27,7 +27,7 @@ pipeline {
         }   
         stage('Run Docker container on Jenkins agent') {
             steps {
-                sh 'docker run -d -p 8003:8080 saichandu5/sample-app'
+                sh 'docker run -d -p 8005:8080 saichandu5/sample-app'
             }          
         }
                
