@@ -27,7 +27,7 @@ pipeline {
         }   
         stage('Docker push') {
          withCredentials([string(credentialsId: 'Docker-pwd', variable: 'Docker-pwd')]) {
-            sh 'docker login -u saichandu5 -p $ {Docker-pwd}
+            sh 'docker login -u saichandu5 -p $ {Docker-pwd}'
          }
             sh docker push saichandu5/sample-app:latest
         }
