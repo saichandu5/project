@@ -38,12 +38,8 @@ pipeline {
                 sh 'docker run -d -p 8005:8080 saichandu5/sample-app'
             }          
         }
-               
-    }
-    post { 
-        always { 
-            cleanWs()
-        }
-    }
-    
-}
+        stage ('CleanUP')
+        {
+         cleanWs()
+         }
+}       
