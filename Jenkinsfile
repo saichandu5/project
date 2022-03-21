@@ -41,5 +41,6 @@ pipeline {
         stage ('CleanUP')
         {
          cleanWs()
-         }
-}       
+         }   
+    }      
+}        
