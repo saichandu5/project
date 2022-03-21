@@ -29,10 +29,11 @@ pipeline {
          withCredentials([string(credentialsId: 'Docker-pwd', variable: 'Docker-pwd')]) {
             sh 'docker login -u saichandu5 -p $ {Docker-pwd}'
          }
-            stage('push to docker hub') {  
+        }
+        stage('push to docker hub') {  
               sh 'docker push saichandu5/sample-app:latest'
         }
-        }
+        
         stage('Run Docker container on Jenkins agent') {
             steps {
                 sh 'docker run -d -p 8005:8080 saichandu5/sample-app'
