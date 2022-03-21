@@ -32,13 +32,13 @@ pipeline {
             stage('push to docker hub') {  
               sh 'docker push saichandu5/sample-app:latest'
         }
-        
+        }
         stage('Run Docker container on Jenkins agent') {
             steps {
                 sh 'docker run -d -p 8005:8080 saichandu5/sample-app'
             }          
         }
-        stage ('CleanUP')
+        stage('CleanUP')
         {
          cleanWs()
          } 
