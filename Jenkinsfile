@@ -42,8 +42,7 @@
             } 
             stage('Deploy to K8S cluster') {
                 steps {
-                    kubernetesDeploy(configs: "deployment.yml", kubeconfigId: "K8S-CLUSTER-CONFIG")
-                    kubernetesDeploy(configs: "service-loadbalancer.yml", kubeconfigId: "K8S-CLUSTER-CONFIG")
+                    kubernetesDeploy(configs: "deploymentservice.yml", kubeconfigId: "K8S-CLUSTER-CONFIG")
                 } 
             }
         
