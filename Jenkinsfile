@@ -26,20 +26,15 @@
                 }
             }   
             stage('Docker push') {
-            withCredentials([string(credentialsId: 'Docker-pwd', variable: 'Docker-pwd')]) {
                 steps {
-                    sh 'docker login -u saichandu5 -p $ {Docker-pwd}'
+                    sh 'docker login -u saichandu5 -p Chandu@578'
                 }
-                
-            }
-            }
+            }   
             stage('push to docker hub') {  
                 steps{
                     sh 'docker push saichandu5/sample-app:latest'
-
                 }
-            }
-            
+            } 
             stage('Run Docker container on Jenkins agent') {
                 steps {
                     sh 'docker run -d -p 8005:8080 saichandu5/sample-app'
