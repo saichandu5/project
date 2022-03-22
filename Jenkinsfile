@@ -43,6 +43,7 @@
             stage('Deploy to K8S cluster') {
                 steps {
                     kubernetesDeploy(configs: "Deploymentservice.yml", kubeconfigId: "K8S-CLUSTER-CONFIG")
+                    enableConfigSubstitution: true
                 } 
             }
         
