@@ -42,7 +42,7 @@
             } 
             stage('Deploy to K8S cluster') {
                 steps {
-                    kubernetesDeploy configs: 'Deploymentservice.yml', kubeConfig: [path: ''], kubeconfigId: 'K8S-CLUSTER-CONFIG', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://13.233.193.110']
+                    kubernetesDeploy configs: 'Deploymentservice.yml', kubeConfig: [path: '.kube/config'], kubeconfigId: 'K8S-CLUSTER-CONFIG'
                 } 
             }
         
