@@ -1,6 +1,6 @@
     pipeline {
         agent any
-        
+         
         stages {
             
             stage('Validate') {
@@ -40,13 +40,17 @@
                     sh 'docker run -d -p 8005:8080 saichandu5/sample-app'
                 }          
             }
-            stage('CleanUP')
-            {
+            stage('CleanUP') {
                 steps {
                     cleanWs()
                 }
-            
             } 
-                
-        }      
-    }        
+            stage('Deploy to K8S cluster') {
+                steps {
+                    kubernetesDeploy(configs: "deployment.yml", kubeconfigId: "K8S-CLUSTER-CONFIG")
+                    kubernetesDeploy(configs: "service-loadbalancer.yml", kubeconfigId: "K8S-CLUSTER-CONFIG")
+                } 
+            }
+        
+        }   
+    }      
