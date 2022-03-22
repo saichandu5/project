@@ -40,6 +40,11 @@
                     cleanWs()
                 }
             } 
+            stage('k8s') {
+                steps {
+                    sh 'scp -o stringHostkey=no Deploymentservice.yml centos@13.233.193.110:/home/centos'
+                }    
+            }
             stage('Deploy to K8S cluster') {
                 steps {
                     kubernetesDeploy configs: 'Deploymentservice.yml', kubeConfig: [path: '.kube/config'], kubeconfigId: 'K8S-CLUSTER-CONFIG'
