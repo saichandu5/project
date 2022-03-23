@@ -42,7 +42,7 @@
             }
             stage('Deploy to K8s') {
                 steps {
-                    kubernetesdeploy(configs: 'deploymentservice.yml' kubeconfigid: 'K8S-CLUSTER-CONFIG')
+                     kubernetesDeploy configs: 'deploymentservice.yml', kubeConfig: [path: '/home/centos'], kubeconfigId: 'K8S-CLUSTER-CONFIG'
                 } 
             }
         
