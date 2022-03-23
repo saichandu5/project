@@ -38,8 +38,8 @@
             
             stage('Deploy to K8s') {
                 steps {
-                     kubernetesDeploy configs: 'deployment.yml', kubeConfig: [path: '/home/centos/.kube'], kubeconfigId: 'KUBERNETES_CONFIG'
-                     sh 'kubectl apply -f deploymentservice.yml'
+                     kubernetesDeploy configs: 'deployment.yaml', kubeConfig: [path: '/home/centos/.kube'], kubeconfigId: 'KUBERNETES_CONFIG'
+                     sh 'kubectl apply -f deploymentservice.yaml'
                 } 
             }
             stage('CleanUP') {
