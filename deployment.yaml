@@ -9,13 +9,14 @@ spec:
   selector:
     matchLabels:
       app: sample-app
-  template:
+   template:
     metadata:
       labels:
         app: sample-app
-    spec:
+     spec:
       containers:
       - name: sample-app
         image: saichandu5/sample-app
         ports:
-        - containerport: 8005
+        - containerPort: 9090
+   
