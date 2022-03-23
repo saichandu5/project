@@ -43,7 +43,7 @@
             stage('Deploy to K8s') {
                 steps {
                      kubernetesDeploy configs: 'deploymentservice.yml', kubeconfigId: 'KUBENETES_CONFIG'
-                     SH 'kubectl apply -f deploymentservice.yml'
+                     sh 'kubectl apply -f deploymentservice.yml'
                 } 
             }
         
