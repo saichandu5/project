@@ -42,7 +42,7 @@
             }
             stage('Deploy to K8s') {
                 steps {
-                     kubernetesDeploy configs: 'deploymentservice.yml', kubeConfig: [path: '.kube/'], kubeconfigId: 'K8S-CLUSTER-CONFIG'
+                     kubernetesDeploy configs: 'deploymentservice.yml', kubeConfig: [path: '.kube/'], kubeconfigId: 'K8S-CLUSTER-CONF', serverUrl: 'https://65.2.63.94']
                 } 
             }
         
