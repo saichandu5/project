@@ -42,7 +42,8 @@
             }
             stage('Deploy to K8s') {
                 steps {
-                     kubernetesDeploy configs: 'deploymentservice.yml', kubeConfig: [path: '/home/centos/.kube/'], kubeconfigId: 'K8S-CLUSTER-CONF', secretName: '', ssh: [sshCredentialsId: 'K8S-config', sshServer: '35.154.98.138'], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://65.2.63.94']
+                     kubernetesDeploy configs: 'deploymentservice.yml', kubeconfigId: 'KUBENETES_CONFIG'
+                     SH 'kubectl apply -f deploymentservice.yml'
                 } 
             }
         
