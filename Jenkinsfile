@@ -35,17 +35,17 @@
                     sh 'docker push saichandu5/sample-app:latest'
                 }
             } 
-            stage('CleanUP') {
-                steps {
-                    cleanWs()
-                }
-            }
+            
             stage('Deploy to K8s') {
                 steps {
                      kubernetesDeploy configs: 'deploymentservice.yml', kubeConfig: [path: '/home/centos/.kube'], kubeconfigId: 'KUBERNETES_CONFIG'
                      sh 'kubectl apply -f deploymentservice.yml'
                 } 
             }
-        
+            stage('CleanUP') {
+                steps {
+                    cleanWs()
+                }
+            }
         }   
     }      
