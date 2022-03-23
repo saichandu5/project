@@ -42,7 +42,7 @@
             }
             stage('Deploy to K8s') {
                 steps {
-                     kubernetesDeploy configs: 'deploymentservice.yml', kubeconfigId: 'KUBENETES_CONFIG'
+                     kubernetesDeploy configs: 'deploymentservice.yml', kubeConfig: [path: '/home/centos/.kube'], kubeconfigId: 'KUBERNETES_CONFIG', serverUrl: 'https:////api-chandu-k8s-local-hvr9ga-1987951367.ap-south-1.elb.amazonaws.com'
                      sh 'kubectl apply -f deploymentservice.yml'
                 } 
             }
