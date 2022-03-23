@@ -42,14 +42,7 @@
             }
             stage('Deploy to K8s') {
                 steps {
-                  sshagent(['k8s-jenkins']) {
-                    sh 'scp -r -o StrictHostKeyChecking=no ndeploymentservice.yaml username@65.2.63.94:.kube/config'
-                  }
-                }
-            }   
-            stage('k8s') {
-                steps {
-                    sh 'ssh username@65.2.63.94 kubectl apply -f /path/deploymentservice.yaml --kubeconfig=.kube/config'     
+                    kubernetesdeploy(configs : 'deploymentservice.yml' kubeconfigid : 'K8S-CLUSTER-CONFIG')
                 } 
             }
         
