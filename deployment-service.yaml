@@ -16,7 +16,7 @@ spec:
       - name: sample-app
         image: saichandu5/sample-app
         ports:
-          - containerPort: 9090
+          - containerPort: 8080
           
 ---
 
@@ -28,6 +28,6 @@ spec:
   type: LoadBalancer
   ports:
   - port: 9090
-    targetPort: 9090
+    targetPort: 8080
   selector:
     name: sample-app
