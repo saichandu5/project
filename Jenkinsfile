@@ -38,14 +38,9 @@
             
             stage('Deploy to K8s') {
                 steps {
-                     kubernetesDeploy configs: 'deployment.yaml', kubeconfigId: 'K8S-CONFIG'
+                     kubernetesDeploy configs: 'deployment-service.yaml', kubeconfigId: 'K8S-CONFIG'
                 } 
             }
-            stage('set up Load-balancer') {
-                steps {
-                     kubenetesDeploy configs: 'service-loadbalancer.yaml', kubeconfigId: 'K8S-CONFIG'
-                }
-            }   
             stage('CleanUP') {
                 steps {
                     cleanWs()
