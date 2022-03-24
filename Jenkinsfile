@@ -38,7 +38,7 @@
             
             stage('Deploy to K8s') {
                 steps {
-                     kubernetesDeploy configs: 'deployment.yaml', kubeconfigId: 'KUBERNETES_CONFIG'
+                     kubernetesDeploy configs: 'deployment.yaml', kubeconfigId: 'K8S-CONFIG'
                 } 
             }
             stage('CleanUP') {
