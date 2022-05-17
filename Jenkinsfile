@@ -26,12 +26,12 @@
                 }
             }   
             stage('Docker push') {
-            withCredentials([string(credentialsId: 'Docker-pwd', variable: 'Docker-pwd')]) {
+              withCredentials([string(credentialsId: 'Docker-pwd', variable: 'Docker-pwd')]) {
                 steps {
                     sh 'docker login -u saichandu5 -p $ {Docker-pwd}'
                 }
                 
-            }
+              }
             }
             stage('push to docker hub') {  
                 steps{
@@ -45,8 +45,7 @@
                     sh 'docker run -d -p 8005:8080 saichandu5/sample-app'
                 }          
             }
-            stage('CleanUP')
-            {
+            stage('CleanUP') {
                 steps {
                     cleanWs()
                 }
